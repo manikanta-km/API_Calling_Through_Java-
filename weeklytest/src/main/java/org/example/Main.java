@@ -55,8 +55,8 @@ public class Main {
                 System.out.println(apiData.toString());
                 JSONObject jsonAPIResponse = new JSONObject(apiData.toString());
 
-                System.out.println(jsonAPIResponse.get("count"));
-                System.out.println(jsonAPIResponse.get("name"));
+                System.out.println("Count : "+jsonAPIResponse.get("count"));
+                System.out.println("Name : "+jsonAPIResponse.get("name"));
 
                 JSONArray countryArray = jsonAPIResponse.getJSONArray("country");
                 for (int i = 0; i < countryArray.length(); i++) {
