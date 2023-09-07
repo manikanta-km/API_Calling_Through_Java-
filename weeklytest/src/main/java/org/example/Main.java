@@ -17,9 +17,7 @@ public class Main {
         URL  url = null;
         HttpURLConnection connection = null;
         int responseCode = 0;
-        String myUrl =  "https://api.nationalize.io/?name=nathaniel";
-
-
+        String myUrl =  "https://api.chucknorris.io/jokes/random";
 
         try {
             url = new URL(myUrl);
@@ -55,20 +53,18 @@ public class Main {
                 System.out.println(apiData.toString());
                 JSONObject jsonAPIResponse = new JSONObject(apiData.toString());
 
-                System.out.println("Count : "+jsonAPIResponse.get("count"));
-                System.out.println("Name : "+jsonAPIResponse.get("name"));
+                System.out.println("Categories : "+jsonAPIResponse.get("categories"));
+                System.out.println("Created_At : "+jsonAPIResponse.get("created_at"));
+                System.out.println("Icon_URL : "+jsonAPIResponse.get("icon_url"));
+                System.out.println("ID : "+jsonAPIResponse.get("id"));
+                System.out.println("Updated_At : "+jsonAPIResponse.get("updated_at"));
+                System.out.println("URL : "+jsonAPIResponse.get("url"));
+                System.out.println("Value : "+jsonAPIResponse.get("value"));
 
-                JSONArray countryArray = jsonAPIResponse.getJSONArray("country");
-                for (int i = 0; i < countryArray.length(); i++) {
-                    JSONObject countryInfo = countryArray.getJSONObject(i);
-                    System.out.println("Country ID: " + countryInfo.getString("country_id"));
-                    System.out.println("Probability: " + countryInfo.getDouble("probability"));
-                }
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
 
         }
         else
